@@ -1,10 +1,5 @@
 import sys
-import itertools
 import time
-import matplotlib.pyplot as plt
-
-
-
 
 #trans_set will store all the tids
 trans_set = set()
@@ -21,7 +16,6 @@ def getUniqueItemList(inputFile,minSup):
 
         with open(inputFile, 'r') as inputData:
             transNum = 0
-            # Database = [set([i.rstrip() for i in transaction.split('\t')]) for transaction in f]
             for transaction in inputData:
                 transNum += 1
                 trans_set.add(transNum)
@@ -42,17 +36,8 @@ def getUniqueItemList(inputFile,minSup):
             uniqueItem.append(key)
 
     uniqueItem.sort(key=int)
-    #print(uniqueItem)
     return uniqueItem
 
-
-def graphResults(minSupList, runTimeList):
-
-    plt.plot(minSupList, runTimeList, marker='*')
-    plt.title("Kundai: eclat")
-    plt.xlabel("minSupport")
-    plt.ylabel("RunTime(s)")
-    plt.show()
 
 def writeResults():
 
@@ -97,18 +82,6 @@ if __name__ == "__main__":
     minSup = int(sys.argv[3])
     runTimeList = []
     minSupList = []
-    for i in range(8):
-        start = time.time()
-        uniqueItemList = getUniqueItemList(inputFile, minSup)
-        runEclat(uniqueItemList, minSup)
-        end = time.time()
-        #writeResults()
-        Runtime = end - start
-        print(len(frequentItems.keys()))
-        runTimeList.append(Runtime)
-        minSupList.append(minSup)
-        print('minSup', minSup, 'Run time', end - start, 'seconds')
-    """
     start = time.time()
     uniqueItemList = getUniqueItemList(inputFile, minSup)
     runEclat(uniqueItemList, minSup)
@@ -119,4 +92,3 @@ if __name__ == "__main__":
     runTimeList.append(Runtime)
     minSupList.append(minSup)
     print('minSup', minSup, 'Run time', end - start, 'seconds')
-    """
