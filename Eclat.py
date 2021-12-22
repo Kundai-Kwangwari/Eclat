@@ -71,7 +71,7 @@ def runEclat(prev_freqList, minSup):
                     frequentItems[newKey] = intersect
                     new_freqList.append(newKey)
             else: break
-
+1
 
     if len(new_freqList) > 0:
         runEclat(new_freqList,minSup)
