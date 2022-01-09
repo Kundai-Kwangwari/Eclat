@@ -46,8 +46,8 @@ def writeResults():
     with open(output, 'w') as f:
         for key, value in frequentItems.items():
             count += 1
-            print(count,key,value)
-            pattern = key + " |"+ str(value)
+            print(count, ". | Key" ,key, " |Occurences:", value, " | frequency: ", len(value))
+            pattern = key + " |Occurences:"+ str(value) + "| frequency: " + str(len(value))
 
             f.write(pattern)
             f.write("\n")
